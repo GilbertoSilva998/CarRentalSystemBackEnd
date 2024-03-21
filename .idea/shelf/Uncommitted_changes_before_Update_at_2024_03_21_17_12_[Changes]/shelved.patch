@@ -1,0 +1,420 @@
+Index: src/main/java/za/ac/cput/factory/InsuranceFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/factory/InsuranceFactory.java b/src/main/java/za/ac/cput/factory/InsuranceFactory.java
+new file mode 100644
+--- /dev/null	(date 1711032792498)
++++ b/src/main/java/za/ac/cput/factory/InsuranceFactory.java	(date 1711032792498)
+@@ -0,0 +1,15 @@
++package za.ac.cput.factory;
++
++import za.ac.cput.domain.Insurance;
++
++public class InsuranceFactory {
++
++    public static Insurance createInsurance(String insuranceID, String coverageType, double coverageAmount){
++        Insurance insurance = new Insurance.Builder()
++                .setInsuranceID(insuranceID)
++                .setCoverageType(coverageType)
++                .setCoverageAmount(coverageAmount)
++                .build();
++        return insurance;
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"corretto-17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 1d48c52c65da1b1e8213e1c24d5ab78708193401)
++++ b/.idea/misc.xml	(date 1711027151626)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c3b89c08-6ca7-49b1-8f70-18d055a3c436\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/Main.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Car.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Customer.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/factory/CarFactory.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/factory/CustomerFactory.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/repository/CarRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/repository/CustomerRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/repository/ICarRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/repository/ICustomerRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/repository/IRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/za/ac/cput/util/Helper.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 3\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2duSPaVpozx9jquNMoecacVkLMc\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"onboarding.tips.debug.path\": \"/Users/gilbertosilva/IdeaProjects/CarRentalSystemBackEnd/src/main/java/za/ac/cput/Main.java\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c3b89c08-6ca7-49b1-8f70-18d055a3c436\" name=\"Changes\" comment=\"\" />\r\n      <created>1710856449289</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1710856449289</updated>\r\n      <workItem from=\"1710856450924\" duration=\"825000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/za/ac/cput/Main.java</url>\r\n          <line>13</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1d48c52c65da1b1e8213e1c24d5ab78708193401)
++++ b/.idea/workspace.xml	(date 1711033902405)
+@@ -5,22 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c3b89c08-6ca7-49b1-8f70-18d055a3c436" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Car.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Customer.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/CarFactory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/CustomerFactory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/CarRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/CustomerRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/ICarRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/ICustomerRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/IRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/util/Helper.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Insurance.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Payment.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/InsuranceFactory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/PaymentFactory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,44 +20,58 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Interface" />
+         <option value="Class" />
++        <option value="Interface" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 3
+-}]]></component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 3
++}</component>
+   <component name="ProjectId" id="2duSPaVpozx9jquNMoecacVkLMc" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "main",
+-    "kotlin-language-version-configured": "true",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "onboarding.tips.debug.path": "/Users/gilbertosilva/IdeaProjects/CarRentalSystemBackEnd/src/main/java/za/ac/cput/Main.java",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Maven.CarRentalSystemBackEnd [clean].executor&quot;: &quot;Run&quot;,
++    &quot;Maven.CarRentalSystemBackEnd [package].executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;219189153&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/mzura/OneDrive - Cape Peninsula University of Technology/APPLICATIONS DEVELOPMENT PRACTICE 3/TERM 1/ASSIGNMENTS/group12-cateringManagementSystem&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/gilbertosilva/IdeaProjects/CarRentalSystemBackEnd/src/main/java/za/ac/cput/Main.java&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
+-  <component name="SharedIndexes">
+-    <attachedChunks>
+-      <set>
+-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+-      </set>
+-    </attachedChunks>
++}</component>
++  <component name="RecentsManager">
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="za.ac.cput.repository" />
++      <recent name="za.ac.cput.factory" />
++    </key>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -78,11 +82,28 @@
+       <option name="presentableId" value="Default" />
+       <updated>1710856449289</updated>
+       <workItem from="1710856450924" duration="825000" />
++      <workItem from="1711009502912" duration="741000" />
++      <workItem from="1711010435515" duration="3187000" />
++      <workItem from="1711013883190" duration="303000" />
++      <workItem from="1711026485100" duration="3294000" />
++      <workItem from="1711031454371" duration="1345000" />
++      <workItem from="1711033245004" duration="620000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: src/main/java/za/ac/cput/domain/Payment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/domain/Payment.java b/src/main/java/za/ac/cput/domain/Payment.java
+new file mode 100644
+--- /dev/null	(date 1711029358160)
++++ b/src/main/java/za/ac/cput/domain/Payment.java	(date 1711029358160)
+@@ -0,0 +1,104 @@
++package za.ac.cput.domain;
++
++/*
++ * Payment.java
++ * Entity for the Payment
++ * Author: Thina Mzosindiso Nontwabaza (219189153)
++ * Date: 21 March 2024
++ */
++public class Payment {
++    private String paymentID;
++    private String reservationID;
++    private double totalAmount;
++    private String paymentType;
++    private String date;
++
++    private Payment(){
++
++    }
++
++    private Payment(Builder builder){
++        this.paymentID = builder.paymentID;
++        this.reservationID = builder.reservationID;
++        this.totalAmount = builder.totalAmount;
++        this.paymentType = builder.paymentType;
++        this.date = builder.date;
++    }
++    //Getters
++    public String getPaymentID() {
++        return paymentID;
++    }
++
++    public String getReservationID() {
++        return reservationID;
++    }
++
++    public double getTotalAmount() {
++        return totalAmount;
++    }
++
++    public String getPaymentType() {
++        return paymentType;
++    }
++
++    public String getDate() {
++        return date;
++    }
++
++    @Override
++    public String toString() {
++        return "Payment{" +
++                "paymentID='" + paymentID + '\'' +
++                ", reservationID='" + reservationID + '\'' +
++                ", totalAmount=" + totalAmount +
++                ", paymentType='" + paymentType + '\'' +
++                ", date='" + date + '\'' +
++                '}';
++    }
++
++    public static class Builder{
++        private String paymentID;
++        private String reservationID;
++        private double totalAmount;
++        private String paymentType;
++        private String date;
++
++        public Builder setPaymentID(String paymentID) {
++            this.paymentID = paymentID;
++            return this;
++        }
++
++        public Builder setReservationID(String reservationID) {
++            this.reservationID = reservationID;
++            return this;
++        }
++
++        public Builder setTotalAmount(double totalAmount) {
++            this.totalAmount = totalAmount;
++            return this;
++        }
++
++        public Builder setPaymentType(String paymentType) {
++            this.paymentType = paymentType;
++            return this;
++        }
++
++        public Builder setDate(String date) {
++            this.date = date;
++            return this;
++        }
++
++        public Builder copy(Payment payment){
++            this.paymentID = payment.paymentID;
++            this.reservationID = payment.reservationID;
++            this.totalAmount = payment.totalAmount;
++            this.paymentType = payment.paymentType;
++            this.date = payment.date;
++            return this;
++        }
++
++        public Payment build(){
++            return new Payment(this);
++        }
++    }
++}
+Index: src/main/java/za/ac/cput/domain/Insurance.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/domain/Insurance.java b/src/main/java/za/ac/cput/domain/Insurance.java
+new file mode 100644
+--- /dev/null	(date 1711032792545)
++++ b/src/main/java/za/ac/cput/domain/Insurance.java	(date 1711032792545)
+@@ -0,0 +1,73 @@
++package za.ac.cput.domain;
++
++/*
++ * Insurance.java
++ * Entity for the Insurance
++ * Author: Thina Mzosindiso Nontwabaza (219189153)
++ * Date: 21 March 2024
++ */
++
++public class Insurance {
++    private String insuranceID;
++    private String coverageType;
++    private double coverageAmount;
++
++    private Insurance(Builder builder){
++        this.insuranceID = builder.insuranceID;
++        this.coverageType = builder.coverageType;
++        this.coverageAmount = builder.coverageAmount;
++    }
++    //Getters
++    public String getInsuranceID() {
++        return insuranceID;
++    }
++
++    public String getCoverageType() {
++        return coverageType;
++    }
++
++    public double getCoverageAmount() {
++        return coverageAmount;
++    }
++
++    @Override
++    public String toString() {
++        return "Insurance{" +
++                "insuranceID='" + insuranceID + '\'' +
++                ", coverageType='" + coverageType + '\'' +
++                ", coverageAmount='" + coverageAmount + '\'' +
++                '}';
++    }
++
++    public static class Builder{
++        private String insuranceID;
++        private String coverageType;
++        private double coverageAmount;
++
++        public Builder setInsuranceID(String insuranceID) {
++            this.insuranceID = insuranceID;
++            return this;
++        }
++
++        public Builder setCoverageType(String coverageType) {
++            this.coverageType = coverageType;
++            return this;
++        }
++
++        public Builder setCoverageAmount(double coverageAmount) {
++            this.coverageAmount = coverageAmount;
++            return this;
++        }
++
++        public Builder copy(Insurance insurance){
++            this.insuranceID = insurance.insuranceID;
++            this.coverageType = insurance.coverageType;
++            this.coverageAmount = insurance.coverageAmount;
++            return this;
++        }
++
++        public Insurance build(){
++            return new Insurance(this);
++        }
++    }
++}
+Index: src/main/java/za/ac/cput/factory/PaymentFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/factory/PaymentFactory.java b/src/main/java/za/ac/cput/factory/PaymentFactory.java
+new file mode 100644
+--- /dev/null	(date 1711032845889)
++++ b/src/main/java/za/ac/cput/factory/PaymentFactory.java	(date 1711032845889)
+@@ -0,0 +1,17 @@
++package za.ac.cput.factory;
++
++import za.ac.cput.domain.Payment;
++
++public class PaymentFactory {
++
++    public static Payment createPayment(String paymentID, String reservationID, double totalAmount, String paymentType, String date){
++        Payment payment = new Payment.Builder()
++                .setPaymentID(paymentID)
++                .setReservationID(reservationID)
++                .setTotalAmount(totalAmount)
++                .setPaymentType(paymentType)
++                .setDate(date)
++                .build();
++            return payment;
++    }
++}
