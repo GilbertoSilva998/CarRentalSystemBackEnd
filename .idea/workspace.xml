@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3b89c08-6ca7-49b1-8f70-18d055a3c436" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Insurance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/InsuranceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/PaymentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/MaintenanceLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/domain/RentalAgreement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/MaintenanceLogFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/factory/RentalFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/MaintenanceLogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/MaintenanceLogRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/RentalRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/repository/RentalRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/domain/MaintenanceLogTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/domain/RentalAgreementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/factory/MaintenanceLogFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/factory/RentalFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/repository/MaintenanceLogRepositoryImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/za/ac/cput/repository/RentalRepositoryImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_03_21_17_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_03_21_17_12__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,33 +59,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.CarRentalSystemBackEnd [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CarRentalSystemBackEnd [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;219189153&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mzura/OneDrive - Cape Peninsula University of Technology/APPLICATIONS DEVELOPMENT PRACTICE 3/TERM 1/ASSIGNMENTS/group12-cateringManagementSystem&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/gilbertosilva/IdeaProjects/CarRentalSystemBackEnd/src/main/java/za/ac/cput/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.CarRentalSystemBackEnd [clean].executor": "Run",
+    "Maven.CarRentalSystemBackEnd [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mzura/OneDrive - Cape Peninsula University of Technology/APPLICATIONS DEVELOPMENT PRACTICE 3/TERM 1/ASSIGNMENTS/group12-cateringManagementSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/gilbertosilva/IdeaProjects/CarRentalSystemBackEnd/src/main/java/za/ac/cput/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="za.ac.cput.repository" />
       <recent name="za.ac.cput.factory" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="za.ac.cput.repository" />
+      <recent name="za.ac.cput.factory" />
+      <recent name="za.ac.cput.domain" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-16.0.2-corretto-16.0.2-4caba194b151-cab9e76a" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,6 +122,7 @@
       <workItem from="1711026485100" duration="3294000" />
       <workItem from="1711031454371" duration="1345000" />
       <workItem from="1711033245004" duration="620000" />
+      <workItem from="1711052221881" duration="13437000" />
     </task>
     <servers />
   </component>
