@@ -6,16 +6,22 @@ import za.ac.cput.domain.MaintenanceLog;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
+    Paul Maja 220214115
+    24 March 2023
+ */
 class MaintenanceLogRepositoryTest {
 
     @Test
     void addMaintenanceLog() {
-        // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
-        MaintenanceLog maintenanceLog = new MaintenanceLog(101, null, "Oil change", 150.0, 5000);
-
-        // Act
+        MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Oil change")
+                .setCost(150.0)
+                .setMileage(5000)
+                .build();
         repository.addMaintenanceLog(maintenanceLog);
 
         // Assert
@@ -25,18 +31,49 @@ class MaintenanceLogRepositoryTest {
 
     @Test
     void getAllMaintenanceLogs() {
-        // Test will depend on the implementation of MaintenanceLogRepository,
-        // verifying that all maintenance logs are retrieved correctly.
+        // Arrange
+        MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
+
+        // Create sample maintenance logs
+        MaintenanceLog maintenanceLog1 = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Oil change")
+                .setCost(150.0)
+                .setMileage(5000)
+                .build();
+
+        MaintenanceLog maintenanceLog2 = new MaintenanceLog.Builder()
+                .setCarID(102)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Brake replacement")
+                .setCost(300.0)
+                .setMileage(5500)
+                .build();
+
+        repository.addMaintenanceLog(maintenanceLog1);
+        repository.addMaintenanceLog(maintenanceLog2);
+
+        List<MaintenanceLog> allMaintenanceLogs = repository.getAllMaintenanceLogs();
+
+        // Assert
+        assertEquals(2, allMaintenanceLogs.size());
+        assertTrue(allMaintenanceLogs.contains(maintenanceLog1));
+        assertTrue(allMaintenanceLogs.contains(maintenanceLog2));
     }
 
     @Test
     void getMaintenanceLogById() {
-        // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
-        MaintenanceLog maintenanceLog = new MaintenanceLog(101, null, "Oil change", 150.0, 5000);
+        MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Oil change")
+                .setCost(150.0)
+                .setMileage(5000)
+                .build();
         repository.addMaintenanceLog(maintenanceLog);
 
-        // Act
         MaintenanceLog retrievedLog = repository.getMaintenanceLogById(101);
 
         // Assert
@@ -48,11 +85,23 @@ class MaintenanceLogRepositoryTest {
     void updateMaintenanceLog() {
         // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
-        MaintenanceLog maintenanceLog = new MaintenanceLog(101, null, "Oil change", 150.0, 5000);
+        MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Oil change")
+                .setCost(150.0)
+                .setMileage(5000)
+                .build();
         repository.addMaintenanceLog(maintenanceLog);
 
         // Create an updated maintenance log
-        MaintenanceLog updatedMaintenanceLog = new MaintenanceLog(101, null, "Brake replacement", 300.0, 5500);
+        MaintenanceLog updatedMaintenanceLog = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Brake replacement")
+                .setCost(300.0)
+                .setMileage(5500)
+                .build();
 
         // Act
         repository.updateMaintenanceLog(updatedMaintenanceLog);
@@ -66,7 +115,13 @@ class MaintenanceLogRepositoryTest {
     void deleteMaintenanceLog() {
         // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
-        MaintenanceLog maintenanceLog = new MaintenanceLog(101, null, "Oil change", 150.0, 5000);
+        MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
+                .setCarID(101)
+                .setMaintenanceDate(null)
+                .setMaintenanceType("Oil change")
+                .setCost(150.0)
+                .setMileage(5000)
+                .build();
         repository.addMaintenanceLog(maintenanceLog);
 
         // Act
