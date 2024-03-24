@@ -7,10 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
-    Paul Maja 220214115
-    24 March 2023
- */
+
 class RentalFactoryTest {
 
     @Test
@@ -19,14 +16,15 @@ class RentalFactoryTest {
         int agreementID = 1001;
         int customerID = 2001;
         int carID = 3001;
-        String pickupLocation = "BMW Car Rentals";
-        String dropOffLocation = "TOWN Location";
+        String pickupLocation = "ABC Car Rentals";
+        String dropOffLocation = "XYZ Location";
         Date pickupDateTime = new Date();
         Date dropOffDateTime = new Date();
         boolean insuranceCoverage = true;
         String[] additionalServices = {"GPS", "Child Seat"}; // Array of additional services
         String termsAndConditions = "Standard Terms Apply";
 
+        // Act
         RentalAgreement rental = RentalFactory.createRental(agreementID, customerID, carID, pickupLocation,
                 dropOffLocation, pickupDateTime, dropOffDateTime, insuranceCoverage, new String[]{Arrays.toString(additionalServices)}, termsAndConditions);
 
@@ -40,6 +38,7 @@ class RentalFactoryTest {
         assertEquals(pickupDateTime, rental.getPickupDateTime());
         assertEquals(dropOffDateTime, rental.getDropOffDateTime());
         assertEquals(insuranceCoverage, rental.isInsuranceCoverage());
+        // Convert array to list and then compare
         assertEquals(Arrays.asList(additionalServices), Arrays.asList(rental.getAdditionalServices()));
         assertEquals(termsAndConditions, rental.getTermsAndConditions());
     }

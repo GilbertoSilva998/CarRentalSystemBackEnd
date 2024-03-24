@@ -4,10 +4,7 @@ import za.ac.cput.domain.RentalAgreement;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
-    Paul Maja 220214115
-    24 March 2023
- */
+
 public class RentalRepositoryImpl implements RentalRepository {
     private final List<RentalAgreement> rentals;
 
