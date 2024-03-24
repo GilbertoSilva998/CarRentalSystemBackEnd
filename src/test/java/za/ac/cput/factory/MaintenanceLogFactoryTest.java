@@ -6,7 +6,10 @@ import za.ac.cput.domain.MaintenanceLog;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
+    Paul Maja 220214115
+    24 March 2023
+ */
 class MaintenanceLogFactoryTest {
 
     @Test
@@ -18,7 +21,7 @@ class MaintenanceLogFactoryTest {
         double maintenanceCost = 150.0;
         int mileageAtMaintenance = 5000;
 
-        // Act
+
         MaintenanceLog maintenanceLog = MaintenanceLogFactory.createMaintenanceLog(carID, maintenanceDate,
                 maintenanceType, maintenanceCost, mileageAtMaintenance);
 
