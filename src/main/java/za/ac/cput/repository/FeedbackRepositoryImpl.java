@@ -57,7 +57,7 @@ public class FeedbackRepositoryImpl implements IFeedbackRepository {
             // Logic to retrieve feedbacks by customer ID from the data source
             List<Feedback> feedbacks = new ArrayList<>();
             for (Feedback feedback : feedbackMap.values()) {
-                if (feedback.getCustomer().getCustomerId().equals(customerId)) {
+                if (feedback.getCustomer().toString().equals(customerId)) {
                     feedbacks.add(feedback);
                 }
             }

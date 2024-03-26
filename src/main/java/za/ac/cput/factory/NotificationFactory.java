@@ -1,7 +1,9 @@
 package za.ac.cput.factory;
 
+import za.ac.cput.domain.Car;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Notification;
+import za.ac.cput.util.Helper;
 
 import java.util.Date;
 
@@ -9,8 +11,16 @@ import java.util.Date;
 public class NotificationFactory {
 
     // Method to create a notification object
-    public static Notification createNotification(String notificationId, String message, Date sentDate, boolean isRead, Customer recipient) {
-        // You can add validation logic here before creating the notification object
+    public static Notification createNotification(String notificationId,
+                                                  String message,
+                                                  String sentDate,
+                                                  boolean isRead,
+                                                  String recipient) {
+
+
+
+
+
 
         // Create and return a new notification object
         return new Notification(notificationId, message, sentDate, isRead, recipient);
