@@ -3,8 +3,7 @@ package za.ac.cput;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Feedback;
 import za.ac.cput.domain.Notification;
-import za.ac.cput.factory.FeedbackFactory;
-import za.ac.cput.factory.NotificationFactory;
+import za.ac.cput.domain.RentalAgreement;
 
 import java.util.Date;
 
@@ -22,37 +21,32 @@ public class Main {
             System.out.println("i = " + i);
         }
 
-        // Example of using the FeedbackFactory (Sinothando 219153841)
+            Feedback feedback = new Feedback.Builder("FB001")
+                    .rental(String.valueOf(new RentalAgreement()))
+                    .customer(String.valueOf(new Customer("C001", "John Doe", "john@example.com")))
+                    .rating(String.valueOf(5))
+                    .comments("Excellent service!")
+                    .feedbackDate(String.valueOf(new Date()))
+                    .build();
 
-        // Sample data
-        String feedbackId = "FB001";
-        Rental rental = new Rental(); // Assuming Rental class exists
-        Customer customer = new Customer(); // Assuming Customer class exists
-        int rating = 4;
-        String comments = "Great experience!";
-        Date feedbackDate = new Date(); // Current date/time
-
-        // Create a feedback object using the factory method
-        Feedback feedback = FeedbackFactory.createFeedback(feedbackId, rental, customer, rating, comments, feedbackDate);
-
-        // Display the created feedback object
-        System.out.println("Feedback created: " + feedback);
+            // Use the constructed feedback object as needed
+            System.out.println("Feedback created: " + feedback);
 
 
+            //For Notification
+        Customer recipient = new Customer("C001", "John Doe", "john@example.com"); // Sample recipient
 
-        // Example of using the NotificationFactory(Sinothando 219153841)
-        // Sample data
-            String notificationId = "N001";
-            String message = "Your rental has been confirmed.";
-            Date sentDate = new Date(); // Current date/time
-            boolean isRead = false;
-            Customer recipient = new Customer(); // Assuming Customer class exists
+        Notification notification = new Notification.Builder("N001")
+                .message("Your rental has been confirmed.")
+                .sentDate(String.valueOf(new Date()))
+                .isRead(false)
+                .recipient(String.valueOf(recipient))
+                .build();
 
-            // Create a notification object using the factory method
-            Notification notification = NotificationFactory.createNotification(notificationId, message, sentDate, isRead, recipient);
+        // Use the constructed notification object as needed
+        System.out.println("Notification created: " + notification);
+    }
 
-            // Display the created notification object
-            System.out.println("Notification created: " + notification);
 
     }
-    }
+
