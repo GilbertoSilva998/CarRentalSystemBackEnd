@@ -9,10 +9,11 @@ import java.util.Date;
 public class FeedbackFactory {
 
     // Method to create a feedback object
-    public static Feedback createFeedback(String feedbackId, Rental rental, Customer customer, int rating, String comments, Date feedbackDate) {
-        // You can add validation logic here before creating the feedback object
+    public static Feedback createFeedback(String feedbackId, String rental, String customer, String rating, String comments, String feedbackDate) {
+
 
         // Create and return a new feedback object
         return new Feedback(feedbackId, rental, customer, rating, comments, feedbackDate);
     }
+}
 
