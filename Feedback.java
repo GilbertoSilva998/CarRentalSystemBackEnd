@@ -1,15 +1,13 @@
 package za.ac.cput.domain;
 //Sinothando Masiki 219153841
 
-import java.util.Date;
-
 public class Feedback {
     private String feedbackId;
     private String rental; // Assuming Rental class exists
-    private Customer customer; // Assuming Customer class exists
-    private int rating;
+    private String customer; // Assuming Customer class exists
+    private String rating;
     private String comments;
-    private Date feedbackDate;
+    private String feedbackDate;
 
     private Feedback(Builder builder) {
         this.feedbackId = builder.feedbackId;
@@ -21,11 +19,8 @@ public class Feedback {
     }
 
     // Constructors
-    public Feedback() {
-        // Default constructor
-    }
 
-    public Feedback(String feedbackId, String rental, Customer customer, int rating, String comments, Date feedbackDate) {
+    public Feedback(String feedbackId, String rental, String customer, String rating, String comments, String feedbackDate) {
         this.feedbackId = feedbackId;
         this.rental = rental;
         this.customer = customer;
@@ -39,57 +34,44 @@ public class Feedback {
         return feedbackId;
     }
 
-    public void setFeedbackId(String feedbackId) {
-        this.feedbackId = feedbackId;
-    }
 
     public String getRental() {
         return rental;
     }
 
-    public void setRental(String rental) {
-        this.rental = rental;
-    }
-
-    public Customer getCustomer() {
+    public String getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public String setRating(String number) {
         this.rating = rating;
+        return null;
     }
+
 
     public String getComments() {
         return comments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 
-    public Date getFeedbackDate() {
+    public String getFeedbackDate() {
         return feedbackDate;
     }
 
-    public void setFeedbackDate(Date feedbackDate) {
-        this.feedbackDate = feedbackDate;
-    }
+
 
     public static class Builder {
         private final String feedbackId;
         private String rental;
-        private Customer customer;
-        private int rating;
+        private String customer;
+        private String rating;
         private String comments;
-        private Date feedbackDate;
+        private String feedbackDate;
 
         public Builder(String feedbackId) {
             this.feedbackId = feedbackId;
@@ -100,12 +82,12 @@ public class Feedback {
             return this;
         }
 
-        public Builder customer(Customer customer) {
+        public Builder customer(String customer) {
             this.customer = customer;
             return this;
         }
 
-        public Builder rating(int rating) {
+        public Builder rating(String rating) {
             this.rating = rating;
             return this;
         }
@@ -115,8 +97,17 @@ public class Feedback {
             return this;
         }
 
-        public Builder feedbackDate(Date feedbackDate) {
+        public Builder feedbackDate(String feedbackDate) {
             this.feedbackDate = feedbackDate;
+            return this;
+        }
+
+        public Feedback.Builder copy(Feedback feedback) {
+            this.rental = feedback.rental;
+            this.customer = feedback.customer;
+            this.rating = feedback.rating;
+            this.comments = feedback.comments;
+            this.feedbackDate = feedback.feedbackDate;
             return this;
         }
 

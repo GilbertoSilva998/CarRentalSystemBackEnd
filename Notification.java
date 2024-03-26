@@ -7,9 +7,9 @@ public class Notification {
 
     private String notificationId;
     private String message;
-    private Date sentDate;
+    private String sentDate;
     private boolean isRead;
-    private Customer recipient;
+    private String recipient;
 
     private Notification(Builder builder) {
         this.notificationId = builder.notificationId;
@@ -20,7 +20,7 @@ public class Notification {
     }
     // Constructors
 
-    public Notification(String notificationId, String message, Date sentDate, boolean isRead, Customer recipient) {
+    public Notification(String notificationId, String message, String sentDate, boolean isRead, String recipient) {
         this.notificationId = notificationId;
         this.message = message;
         this.sentDate = sentDate;
@@ -33,50 +33,33 @@ public class Notification {
         return notificationId;
     }
 
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Date getSentDate() {
+    public String getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
-        this.sentDate = sentDate;
-    }
 
     public boolean isRead() {
         return isRead;
     }
 
-    public void setRead(boolean read) {
-        isRead = read;
-    }
-
-    public Customer getRecipient() {
+    public String getRecipient() {
         return recipient;
     }
 
-    public void setRecipient(Customer recipient) {
-        this.recipient = recipient;
-    }
 
     public static class Builder {
-        private final String notificationId;
+        private String notificationId;
         private String message;
-        private Date sentDate;
+        private String sentDate;
         private boolean isRead;
-        private Customer recipient;
+        private String recipient;
 
         public Builder(String notificationId) {
+
             this.notificationId = notificationId;
         }
 
@@ -85,7 +68,7 @@ public class Notification {
             return this;
         }
 
-        public Builder sentDate(Date sentDate) {
+        public Builder sentDate(String sentDate) {
             this.sentDate = sentDate;
             return this;
         }
@@ -95,8 +78,17 @@ public class Notification {
             return this;
         }
 
-        public Builder recipient(Customer recipient) {
+        public Builder recipient(String recipient) {
             this.recipient = recipient;
+            return this;
+        }
+
+        public Notification.Builder copy(Notification notification) {
+            this.notificationId = notification.notificationId;
+            this.message = notification.message;
+            this.sentDate = notification.sentDate;
+            this.isRead = notification.isRead;
+            this.recipient = notification.recipient;
             return this;
         }
 

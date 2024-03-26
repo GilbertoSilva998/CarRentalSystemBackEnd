@@ -22,11 +22,11 @@ public class Main {
         }
 
             Feedback feedback = new Feedback.Builder("FB001")
-                    .rental(new RentalAgreement())
-                    .customer(new Customer("C001", "John Doe", "john@example.com"))
-                    .rating(5)
+                    .rental(String.valueOf(new RentalAgreement()))
+                    .customer(String.valueOf(new Customer("C001", "John Doe", "john@example.com")))
+                    .rating(String.valueOf(5))
                     .comments("Excellent service!")
-                    .feedbackDate(new Date())
+                    .feedbackDate(String.valueOf(new Date()))
                     .build();
 
             // Use the constructed feedback object as needed
@@ -38,9 +38,9 @@ public class Main {
 
         Notification notification = new Notification.Builder("N001")
                 .message("Your rental has been confirmed.")
-                .sentDate(new Date())
+                .sentDate(String.valueOf(new Date()))
                 .isRead(false)
-                .recipient(recipient)
+                .recipient(String.valueOf(recipient))
                 .build();
 
         // Use the constructed notification object as needed
