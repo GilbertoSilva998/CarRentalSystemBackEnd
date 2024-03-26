@@ -2,6 +2,7 @@ package za.ac.cput.domain;
 //Sinothando Masiki 219153841
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Notification {
 
@@ -50,6 +51,17 @@ public class Notification {
         return recipient;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Notification that)) return false;
+        return isRead() == that.isRead() && Objects.equals(getNotificationId(), that.getNotificationId()) && Objects.equals(getMessage(), that.getMessage()) && Objects.equals(getSentDate(), that.getSentDate()) && Objects.equals(getRecipient(), that.getRecipient());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNotificationId(), getMessage(), getSentDate(), isRead(), getRecipient());
+    }
 
     public static class Builder {
         private String notificationId;
@@ -58,17 +70,18 @@ public class Notification {
         private boolean isRead;
         private String recipient;
 
-        public Builder(String notificationId) {
+        public Builder setNotificationId(String notificationId) {
 
             this.notificationId = notificationId;
+            return this;
         }
 
-        public Builder message(String message) {
+        public Builder setMessage(String message) {
             this.message = message;
             return this;
         }
 
-        public Builder sentDate(String sentDate) {
+        public Builder setSentDate(String sentDate) {
             this.sentDate = sentDate;
             return this;
         }
@@ -78,7 +91,7 @@ public class Notification {
             return this;
         }
 
-        public Builder recipient(String recipient) {
+        public Builder setRecipient(String recipient) {
             this.recipient = recipient;
             return this;
         }

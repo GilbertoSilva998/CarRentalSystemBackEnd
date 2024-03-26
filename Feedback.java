@@ -1,6 +1,8 @@
 package za.ac.cput.domain;
 //Sinothando Masiki 219153841
 
+import java.util.Objects;
+
 public class Feedback {
     private String feedbackId;
     private String rental; // Assuming Rental class exists
@@ -31,26 +33,29 @@ public class Feedback {
 
     // Getters and Setters
     public String getFeedbackId() {
+
         return feedbackId;
     }
 
 
     public String getRental() {
+
         return rental;
     }
 
     public String getCustomer() {
+
         return customer;
     }
 
 
     public String getRating() {
+
         return rating;
     }
 
-    public String setRating(String number) {
+    public void setRating(String number) {
         this.rating = rating;
-        return null;
     }
 
 
@@ -63,41 +68,54 @@ public class Feedback {
         return feedbackDate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Feedback feedback)) return false;
+        return Objects.equals(getFeedbackId(), feedback.getFeedbackId()) && Objects.equals(getRental(), feedback.getRental()) && Objects.equals(getCustomer(), feedback.getCustomer()) && Objects.equals(getRating(), feedback.getRating()) && Objects.equals(getComments(), feedback.getComments()) && Objects.equals(getFeedbackDate(), feedback.getFeedbackDate());
+    }
 
+
+//hash code
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFeedbackId(), getRental(), getCustomer(), getRating(), getComments(), getFeedbackDate());
+    }
 
     public static class Builder {
-        private final String feedbackId;
+        private  String feedbackId;
         private String rental;
         private String customer;
         private String rating;
         private String comments;
         private String feedbackDate;
 
-        public Builder(String feedbackId) {
+        public Builder setFeedbackId(String feedbackId) {
             this.feedbackId = feedbackId;
+            return this;
         }
 
-        public Builder rental(String rental) {
+        public Builder setRental(String rental) {
             this.rental = rental;
             return this;
         }
 
-        public Builder customer(String customer) {
+        public Builder setCustomer(String customer) {
             this.customer = customer;
             return this;
         }
 
-        public Builder rating(String rating) {
+        public Builder setRating(String rating) {
             this.rating = rating;
             return this;
         }
 
-        public Builder comments(String comments) {
+        public Builder setComments(String comments) {
             this.comments = comments;
             return this;
         }
 
-        public Builder feedbackDate(String feedbackDate) {
+        public Builder setFeedbackDate(String feedbackDate) {
             this.feedbackDate = feedbackDate;
             return this;
         }
