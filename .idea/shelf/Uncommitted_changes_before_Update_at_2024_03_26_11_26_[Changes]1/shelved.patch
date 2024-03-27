@@ -1,0 +1,120 @@
+Index: src/main/java/za/ac/cput/factory/InsuranceFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package za.ac.cput.factory;\r\n\r\nimport za.ac.cput.domain.Insurance;\r\n\r\npublic class InsuranceFactory {\r\n\r\n    public static Insurance createInsurance(String insuranceID, String coverageType, double coverageAmount){\r\n        Insurance insurance = new Insurance.Builder()\r\n                .setInsuranceID(insuranceID)\r\n                .setCoverageType(coverageType)\r\n                .setCoverageAmount(coverageAmount)\r\n                .build();\r\n        return insurance;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/factory/InsuranceFactory.java b/src/main/java/za/ac/cput/factory/InsuranceFactory.java
+--- a/src/main/java/za/ac/cput/factory/InsuranceFactory.java	
++++ b/src/main/java/za/ac/cput/factory/InsuranceFactory.java	
+@@ -1,15 +1,22 @@
+ package za.ac.cput.factory;
+-
+ import za.ac.cput.domain.Insurance;
+-
++import za.ac.cput.util.Helper;
++/*
++ * InsuranceFactory.java
++ * Factory for Insurance
++ * Author: Thina Mzosindiso Nontwabaza (219189153)
++ * Date: 21 March 2024
++ */
+ public class InsuranceFactory {
+ 
+     public static Insurance createInsurance(String insuranceID, String coverageType, double coverageAmount){
+-        Insurance insurance = new Insurance.Builder()
++        Helper.checkStringParam("InsuranceID", insuranceID);
++        Helper.checkStringParam("coverageType", coverageType);
++        return new Insurance.Builder()
+                 .setInsuranceID(insuranceID)
+-                .setCoverageType(coverageType)
+                 .setCoverageAmount(coverageAmount)
++                .setCoverageType(coverageType)
+                 .build();
+-        return insurance;
+     }
+ }
++
+Index: src/main/java/za/ac/cput/factory/PaymentFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package za.ac.cput.factory;\r\n\r\nimport za.ac.cput.domain.Payment;\r\n\r\npublic class PaymentFactory {\r\n\r\n    public static Payment createPayment(String paymentID, String reservationID, double totalAmount, String paymentType, String date){\r\n        Payment payment = new Payment.Builder()\r\n                .setPaymentID(paymentID)\r\n                .setReservationID(reservationID)\r\n                .setTotalAmount(totalAmount)\r\n                .setPaymentType(paymentType)\r\n                .setDate(date)\r\n                .build();\r\n            return payment;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/factory/PaymentFactory.java b/src/main/java/za/ac/cput/factory/PaymentFactory.java
+--- a/src/main/java/za/ac/cput/factory/PaymentFactory.java	
++++ b/src/main/java/za/ac/cput/factory/PaymentFactory.java	
+@@ -1,17 +1,25 @@
+ package za.ac.cput.factory;
+-
+ import za.ac.cput.domain.Payment;
+-
++import za.ac.cput.util.Helper;
++/*
++ * PaymentFactory.java
++ * Factory for Payment
++ * Author: Thina Mzosindiso Nontwabaza (219189153)
++ * Date: 21 March 2024
++ */
+ public class PaymentFactory {
+ 
+-    public static Payment createPayment(String paymentID, String reservationID, double totalAmount, String paymentType, String date){
+-        Payment payment = new Payment.Builder()
++    public static Payment createPayment(String paymentID, String reservationID, double totalAmount, String paymentType, String date) {
++        Helper.checkStringParam("paymentID", paymentID);
++        Helper.checkStringParam("reservationID", reservationID);
++        Helper.checkStringParam("paymentType", paymentType);
++        Helper.checkStringParam("date", date);
++        return new Payment.Builder()
+                 .setPaymentID(paymentID)
+                 .setReservationID(reservationID)
+                 .setTotalAmount(totalAmount)
+                 .setPaymentType(paymentType)
+                 .setDate(date)
+                 .build();
+-            return payment;
+     }
+-}
++}
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/za/ac/cput/util/Helper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package za.ac.cput.util;\r\n\r\nimport org.apache.commons.validator.routines.EmailValidator;\r\nimport java.util.UUID;\r\n\r\npublic class Helper {\r\n    public static boolean isNullorEmpty (String s){\r\n        return (s == null || s.equals(\"\") || s.isEmpty() || s.equalsIgnoreCase(\"null\"));\r\n    }\r\n    public static String generateId(){\r\n        return UUID.randomUUID().toString();\r\n    }\r\n    public static boolean isValidEmail(String email){\r\n        EmailValidator ev = EmailValidator.getInstance();\r\n        return ev.isValid(email);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/za/ac/cput/util/Helper.java b/src/main/java/za/ac/cput/util/Helper.java
+--- a/src/main/java/za/ac/cput/util/Helper.java	
++++ b/src/main/java/za/ac/cput/util/Helper.java	
+@@ -14,4 +14,8 @@
+         EmailValidator ev = EmailValidator.getInstance();
+         return ev.isValid(email);
+     }
++    public static void checkStringParam(String paramName, String paramValue){
++        if (isNullorEmpty(paramValue))
++            throw new IllegalArgumentException(String.format("Invalid value for param: %s", paramName));
++    }
+ }
