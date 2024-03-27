@@ -4,43 +4,14 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 public class Feedback {
-    private String feedbackId;
-    private String rental; // Assuming Rental class exists
-    private String customer; // Assuming Customer class exists
-    private String rating;
-    private String comments;
-    private String feedbackDate;
-
-    private Feedback(Builder builder) {
-        this.feedbackId = builder.feedbackId;
-        this.rental = builder.rental;
-        this.customer = builder.customer;
-        this.rating = builder.rating;
-        this.comments = builder.comments;
-        this.feedbackDate = builder.feedbackDate;
-    }
 
     // Constructors
 
-    public Feedback(String feedbackId, String rental, String customer, String rating, String comments, String feedbackDate) {
-        this.feedbackId = feedbackId;
-        this.rental = rental;
-        this.customer = customer;
-        this.rating = rating;
-        this.comments = comments;
-        this.feedbackDate = feedbackDate;
-    }
 
     // Getters and Setters
     public String getFeedbackId() {
 
         return feedbackId;
-    }
-
-
-    public String getRental() {
-
-        return rental;
     }
 
     public String getCustomer() {

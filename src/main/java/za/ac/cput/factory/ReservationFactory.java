@@ -27,14 +27,15 @@ public class ReservationFactory {
             throw new IllegalArgumentException("Invalid pickup or return date/time");
         }
 
-        // If all parameters are valid, create and return the Reservation object
-        return new Reservation.Builder()
+        Reservation reservation = new Reservation.Builder()
                 .setReservationID(reservationID)
                 .setCustomerID(customerID)
                 .setCarModel(carModel)
                 .setPickupDateTime(pickupDateTime)
                 .setReturnDateTime(returnDateTime)
                 .build();
+
+        return reservation;
     }
 }
 
