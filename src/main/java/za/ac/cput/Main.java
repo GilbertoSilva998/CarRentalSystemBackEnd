@@ -21,31 +21,8 @@ public class Main {
             System.out.println("i = " + i);
         }
 
-            Feedback feedback = new Feedback.Builder("FB001")
-                    .rental(String.valueOf(new RentalAgreement()))
-                    .customer(String.valueOf(new Customer("C001", "John Doe", "john@example.com")))
-                    .rating(String.valueOf(5))
-                    .comments("Excellent service!")
-                    .feedbackDate(String.valueOf(new Date()))
-                    .build();
-
-
-
-
-            //For Notification
-        Customer recipient = new Customer("C001", "John Doe", "john@example.com"); // Sample recipient
-
-        Notification notification = new Notification.Builder("N001")
-                .message("Your rental has been confirmed.")
-                .sentDate(String.valueOf(new Date()))
-                .isRead(false)
-                .recipient(String.valueOf(recipient))
-                .build();
-
-        // Use the constructed notification object as needed
-        System.out.println("Notification created: " + notification);
-    }
 
 
     }
+}
 

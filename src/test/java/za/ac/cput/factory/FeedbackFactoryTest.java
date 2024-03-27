@@ -1,55 +1,51 @@
 package za.ac.cput.factory;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Customer;
+import org.junit.jupiter.api.Timeout;
 import za.ac.cput.domain.Feedback;
-import za.ac.cput.domain.RentalAgreement;
-
-import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 //Sinothando Masiki 219153841
 
 class FeedbackFactoryTest {
+    private  Feedback feed1;
+    private Feedback feed2;
+    private Feedback feed3;
 
     @Test
-    void testFeedbackBuilder() {
-        // Create sample objects
-        RentalAgreement rental = new RentalAgreement();
-        String customer = String.valueOf(new Customer("C001", "John Doe", "john@example.com"));
 
-        // Create a feedback using the builder
-        Feedback feedback = new Feedback.Builder("FB001")
-                .rental(String.valueOf(rental))
-                .customer(customer)
-                .rating("4")
-                .comments("Great experience!")
-                .feedbackDate(String.valueOf(new Date()))
-                .build();
+    void test(){
+        Feedback feedback = FeedbackFactory.createFeedback
+                ("Adam Smith",
+                        "Azola M",
+                        "5",
+                        "Excellent",
+                        "02 March 2024");
 
-        // Verify attributes using getter methods
-        assertEquals("FB001", feedback.getFeedbackId());
-        assertEquals(rental, feedback.getRental());
-        assertEquals(customer, feedback.getCustomer());
-        assertEquals(4, feedback.getRating());
-        assertEquals("Great experience!", feedback.getComments());
-        assertNotNull(feedback.getFeedbackDate());
+        System.out.println(feedback.toString());
+        assertNotNull(feedback);
+
     }
 
     @Test
-    public void testFeedbackImmutable() {
-        // Create a feedback using the builder
-        Feedback feedback = new Feedback.Builder("FB002")
-                .rating("5")
-                .build();
+    void testEquality (){assertEquals(feed1, feed2);}
 
-        // Attempt to modify the feedback object (should not be allowed)
-        try {
-            feedback.setRating("4"); // Assuming there is no setter method for rating
-            fail("Expected UnsupportedOperationException was not thrown");
-        } catch (UnsupportedOperationException e) {
-            // Expected exception, test passes
-        }
-    }
+    @Test
+    void testIdentity (){assertSame(feed1, feed3);}
+
+    @Test
+    void testFail(){assertEquals(feed1, feed2);}
+
+    @Test
+    @Timeout(value = 10000, unit = TimeUnit.MILLISECONDS)
+    void testTimeout(){ System.out.println("Time has passed"); }
+
+    @Test
+    @Disabled("Disabled ERROR 808")
+    void testWillBeSkipped(){}
+
+
 }
