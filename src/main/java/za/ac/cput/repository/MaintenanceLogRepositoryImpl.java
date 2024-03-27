@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 public class MaintenanceLogRepositoryImpl implements MaintenanceLogRepository {
     private static final List<MaintenanceLog> maintenanceLogs = new ArrayList<>();
@@ -23,7 +23,7 @@ public class MaintenanceLogRepositoryImpl implements MaintenanceLogRepository {
     }
 
     @Override
-    public MaintenanceLog getMaintenanceLogById(int carID) {
+    public MaintenanceLog getMaintenanceLogById(String carID) {
         for (MaintenanceLog maintenanceLog : maintenanceLogs) {
             if (maintenanceLog.getCarID() == carID) {
                 return maintenanceLog;
@@ -44,7 +44,7 @@ public class MaintenanceLogRepositoryImpl implements MaintenanceLogRepository {
     }
 
     @Override
-    public void deleteMaintenanceLog(int carID) {
+    public void deleteMaintenanceLog(String carID) {
         maintenanceLogs.removeIf(maintenanceLog -> maintenanceLog.getCarID() == carID);
     }
 }
