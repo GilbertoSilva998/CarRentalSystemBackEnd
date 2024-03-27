@@ -1,33 +1,29 @@
 package za.ac.cput.domain;
 //Sinothando Masiki 219153841
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Notification {
-
     private String notificationId;
     private String message;
     private String sentDate;
-    private boolean isRead;
+    private String isRead;
     private String recipient;
 
-    private Notification(Builder builder) {
+
+    //Constructopr
+
+    public Notification(String notificationId, String message, String sentDate, boolean isRead, String recipient) {}
+
+    public Notification(Builder builder) {
         this.notificationId = builder.notificationId;
         this.message = builder.message;
         this.sentDate = builder.sentDate;
         this.isRead = builder.isRead;
         this.recipient = builder.recipient;
     }
-    // Constructors
 
-    public Notification(String notificationId, String message, String sentDate, boolean isRead, String recipient) {
-        this.notificationId = notificationId;
-        this.message = message;
-        this.sentDate = sentDate;
-        this.isRead = isRead;
-        this.recipient = recipient;
-    }
+
 
     // Getters and Setters
     public String getNotificationId() {
@@ -43,7 +39,7 @@ public class Notification {
     }
 
 
-    public boolean isRead() {
+    public String isRead() {
         return isRead;
     }
 
@@ -54,20 +50,38 @@ public class Notification {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Notification that)) return false;
-        return isRead() == that.isRead() && Objects.equals(getNotificationId(), that.getNotificationId()) && Objects.equals(getMessage(), that.getMessage()) && Objects.equals(getSentDate(), that.getSentDate()) && Objects.equals(getRecipient(), that.getRecipient());
+        if (o == null || getClass() != o.getClass()) return false;
+        Notification notification = (Notification) o;
+        return Objects.equals(notificationId, notification.notificationId)
+                && Objects.equals(message, notification.message)
+                && Objects.equals(sentDate, notification.sentDate)
+                && Objects.equals(isRead, notification.isRead)
+                && Objects.equals(recipient, notification.recipient);
+
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNotificationId(), getMessage(), getSentDate(), isRead(), getRecipient());
+        return Objects.hash(notificationId, message, sentDate, isRead, recipient );
+    }
+
+    @Override
+    public String toString() {
+        return "Notification{" +
+                "notificationId='" + notificationId + '\'' +
+                ", message='" + message + '\'' +
+                ", sentDate=" + sentDate +
+                ", isRead=" + isRead +
+                ", recipient=" + recipient +
+                '}';
     }
 
     public static class Builder {
         private String notificationId;
         private String message;
         private String sentDate;
-        private boolean isRead;
+        private String isRead;
         private String recipient;
 
         public Builder setNotificationId(String notificationId) {
@@ -86,7 +100,7 @@ public class Notification {
             return this;
         }
 
-        public Builder isRead(boolean isRead) {
+        public Builder setIsRead(String isRead) {
             this.isRead = isRead;
             return this;
         }
@@ -96,7 +110,7 @@ public class Notification {
             return this;
         }
 
-        public Notification.Builder copy(Notification notification) {
+        public Builder copy(Notification notification) {
             this.notificationId = notification.notificationId;
             this.message = notification.message;
             this.sentDate = notification.sentDate;
@@ -109,16 +123,7 @@ public class Notification {
             return new Notification(this);
         }
 
-        // toString method
-        @Override
-        public String toString() {
-            return "Notification{" +
-                    "notificationId='" + notificationId + '\'' +
-                    ", message='" + message + '\'' +
-                    ", sentDate=" + sentDate +
-                    ", isRead=" + isRead +
-                    ", recipient=" + recipient +
-                    '}';
-        }
+
+
     }
 }
