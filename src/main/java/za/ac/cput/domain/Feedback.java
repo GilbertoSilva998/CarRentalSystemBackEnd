@@ -11,7 +11,10 @@ public class Feedback {
     private String comments;
     private String feedbackDate;
 
-    private Feedback(Builder builder) {
+    //constructors
+  public Feedback() {}
+
+    public Feedback(Builder builder) {
         this.feedbackId = builder.feedbackId;
         this.rental = builder.rental;
         this.customer = builder.customer;
@@ -20,52 +23,28 @@ public class Feedback {
         this.feedbackDate = builder.feedbackDate;
     }
 
-    // Constructors
-
-    public Feedback(String feedbackId, String rental, String customer, String rating, String comments, String feedbackDate) {
-        this.feedbackId = feedbackId;
-        this.rental = rental;
-        this.customer = customer;
-        this.rating = rating;
-        this.comments = comments;
-        this.feedbackDate = feedbackDate;
-    }
 
     // Getters and Setters
-    public String getFeedbackId() {
-
-        return feedbackId;
+    public String getFeedbackId() {return feedbackId;
     }
 
 
-    public String getRental() {
-
-        return rental;
+    public String getRental() {return rental;
     }
 
-    public String getCustomer() {
-
-        return customer;
+    public String getCustomer() {return customer;
     }
 
-
-    public String getRating() {
-
-        return rating;
+    public String getRating() {return rating;
     }
 
-    public void setRating(String number) {
-        this.rating = rating;
+    public void setRating(String number) {this.rating = rating;
     }
 
-
-    public String getComments() {
-        return comments;
+    public String getComments() { return comments;
     }
 
-
-    public String getFeedbackDate() {
-        return feedbackDate;
+    public String getFeedbackDate() {return feedbackDate;
     }
 
     @Override
@@ -76,11 +55,23 @@ public class Feedback {
     }
 
 
-//hash code
     @Override
     public int hashCode() {
         return Objects.hash(getFeedbackId(), getRental(), getCustomer(), getRating(), getComments(), getFeedbackDate());
     }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "feedbackId='" + feedbackId + '\'' +
+                ", rental=" + rental +
+                ", customer=" + customer +
+                ", rating=" + rating +
+                ", comments='" + comments + '\'' +
+                ", feedbackDate=" + feedbackDate +
+                '}';
+    }
+
 
     public static class Builder {
         private  String feedbackId;
@@ -120,7 +111,7 @@ public class Feedback {
             return this;
         }
 
-        public Feedback.Builder copy(Feedback feedback) {
+        public Builder copy(Feedback feedback) {
             this.rental = feedback.rental;
             this.customer = feedback.customer;
             this.rating = feedback.rating;
@@ -133,18 +124,7 @@ public class Feedback {
             return new Feedback(this);
         }
 
-        // toString method
-        @Override
-        public String toString() {
-            return "Feedback{" +
-                    "feedbackId='" + feedbackId + '\'' +
-                    ", rental=" + rental +
-                    ", customer=" + customer +
-                    ", rating=" + rating +
-                    ", comments='" + comments + '\'' +
-                    ", feedbackDate=" + feedbackDate +
-                    '}';
-        }
+
 
     }
 
