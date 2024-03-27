@@ -5,6 +5,7 @@ Author: Mickley Khoza (219457670)
 Date: 21 March 2024
 */
 
+import java.util.ArrayList;
 import java.util.List;
 public class Location {
 
@@ -14,7 +15,8 @@ public class Location {
     private List<Staff> staffInfo;
     private String operatingHours;
 
-    //Contructor
+    //Constructor
+
     private Location() {}
 
     private Location(Builder builder) {
@@ -90,6 +92,15 @@ public class Location {
 
         public Builder setOperatingHours(String operatingHours) {
             this.operatingHours = operatingHours;
+            return this;
+        }
+
+        public Builder copy(Location location) {
+            this.locationId = location.locationId;
+            this.address = location.address;
+            this.availableCars = new ArrayList<>(location.availableCars);
+            this.staffInfo = new ArrayList<>(location.staffInfo);
+            this.operatingHours = location.operatingHours;
             return this;
         }
 
