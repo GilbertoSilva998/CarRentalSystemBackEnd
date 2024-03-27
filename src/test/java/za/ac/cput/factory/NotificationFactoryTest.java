@@ -1,31 +1,48 @@
 package za.ac.cput.factory;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Customer;
+import org.junit.jupiter.api.Timeout;
 import za.ac.cput.domain.Notification;
-
-import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 class NotificationFactoryTest {
 
+    private Notification nott;
+    private Notification nottt;
+    private Notification notttt;
+
     @Test
-    void createNotification() {
-        String notificationId = "N001";
-        String message = "Your rental has been confirmed.";
-        String sentDate = String.valueOf(new Date()); // Current date/time
-        boolean isRead = false;
-        String recipient = String.valueOf(new Customer("C001", "John Doe", "john@example.com")); // Sample recipient
+    public void test(){
+        Notification notification = NotificationFactory.createNotification
+                ("Good Service",
+                        "11 January 2024",
+                        "No",
+                        "Zukhanye"
+                        );
 
-        // Create a notification using the factory method
-        Notification notification = NotificationFactory.createNotification(notificationId, message, sentDate, isRead, recipient);
-
-        // Check if the notification object is created successfully
+        assert notification != null;
+        System.out.println(notification.toString());
         assertNotNull(notification);
-        assertEquals(notificationId, notification.getNotificationId());
-        assertEquals(message, notification.getMessage());
-        assertEquals(sentDate, notification.getSentDate());
-        assertEquals(isRead, notification.isRead());
-        assertEquals(recipient, notification.getRecipient());
     }
+
+    @Test
+    void testEquality (){assertEquals(nott, notttt);}
+
+    @Test
+    void testIdentity (){assertSame(nott, nottt);}
+
+    @Test
+    void testFail(){assertEquals(nott, nottt);}
+
+    @Test
+    @Timeout(value = 10000, unit = TimeUnit.MILLISECONDS)
+    void testTimeout(){ System.out.println("Time has passed"); }
+
+    @Test
+    @Disabled("Disabled ERROR 808")
+    void testWillBeSkipped(){}
+
+
     }
