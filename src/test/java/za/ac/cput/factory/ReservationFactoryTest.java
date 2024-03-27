@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ReservationRepositoryTest {
+ class ReservationRepositoryTest {
     private ReservationRepository repository;
 
     @BeforeEach
@@ -93,7 +93,7 @@ public class ReservationRepositoryTest {
 
         repository.addReservation(reservation);
 
-        Reservation updatedReservation = new Reservation.Builder(reservation)
+        Reservation updatedReservation = new Reservation.Builder()
                 .setCarModel("Toyota Camry")
                 .build();
 
