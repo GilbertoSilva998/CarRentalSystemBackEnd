@@ -4,61 +4,71 @@ package za.ac.cput.repository;
 //Sinothando Masiki 219153841
 
 
-import za.ac.cput.domain.Notification;
 
+import za.ac.cput.domain.Notification;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 public class NotificationRepositoryImpl implements INotificationRepository {
-        private Map<String, Notification> notificationMap; // Simulating data storage
 
-        public NotificationRepositoryImpl() {
-            this.notificationMap = new HashMap<>();
+    private static NotificationRepositoryImpl notificationRepository = null;
+    private List <Notification> notiList = new ArrayList<>();
+
+    private NotificationRepositoryImpl(){notiList = new ArrayList<Notification>();}
+
+    public static NotificationRepositoryImpl  getNotificationRepository(){
+        if (notificationRepository == null) {
+            notificationRepository = new NotificationRepositoryImpl();
         }
+        return notificationRepository;
+    }
 
-        @Override
-        public boolean saveNotification(Notification notification) {
-            // Logic to save notification to the data source
-            notificationMap.put(notification.getNotificationId(), notification);
-            return true; // Or handle failure cases as needed
+    @Override
+    public Notification create(Notification notification) {
+        boolean success = notiList.add(notification);
+        if (!success) {
+            return null;
         }
+        return notification;
+    }
 
-        @Override
-        public boolean updateNotification(Notification notification) {
-            // Logic to update notification in the data source
-            if (notificationMap.containsKey(notification.getNotificationId())) {
-                notificationMap.put(notification.getNotificationId(), notification);
-                return true;
-            }
-            return false; // Notification not found
+    @Override
+    public Notification read(String notificationId) {
+        Notification notification = notiList.stream()
+                .filter(s -> s.getNotificationId().equals(notificationId))
+                .findAny()
+                .orElse(null);
+        return notification;
+    }
+
+    @Override
+    public Notification update(Notification notification) {
+        Notification oldNoti = read(notification.getNotificationId());
+        if (oldNoti != null) {
+            notiList.remove(oldNoti);
+            notiList.add(notification);
+            return notification;
         }
+        return null;
+    }
 
-        @Override
-        public boolean deleteNotification(String notificationId) {
-            // Logic to delete notification from the data source
-            return notificationMap.remove(notificationId) != null;
+    @Override
+    public boolean delete(String notificationId) {
+        Notification deleteNoti = read(notificationId);
+        if (deleteNoti == null) {
+            notiList.remove(null);
+            return false;
         }
+        return true;
+    }
 
-        @Override
-        public Notification getNotificationById(String notificationId) {
-            // Logic to retrieve notification by ID from the data source
-            return notificationMap.get(notificationId);
-        }
+    @Override
+    public List<Notification> getAll() {
+        return notiList;
+    }
 
-        @Override
-        public List<Notification> getAllNotifications() {
-            // Logic to retrieve all notifications from the data source
-            return new ArrayList<>(notificationMap.values());
-        }
-
-        @Override
-        public List<Notification> getNotificationsByRecipientId(String recipientId) {
-            // Logic to retrieve notifications by recipient ID from the data source
-            List<Notification> notifications = new ArrayList<>();
-
-            return notifications;
-        }
 }
+
+
