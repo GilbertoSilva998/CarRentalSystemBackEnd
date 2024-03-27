@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 public class RentalRepositoryImpl implements RentalRepository {
     private final List<RentalAgreement> rentals;
@@ -21,13 +21,8 @@ public class RentalRepositoryImpl implements RentalRepository {
     }
 
     @Override
-    public RentalAgreement getRentalById(int agreementID) {
-        for (RentalAgreement rental : rentals) {
-            if (rental.getAgreementID() == agreementID) {
-                return rental;
-            }
-        }
-        return null;
+    public RentalAgreement getRentalById(String agreementID) {
+        return rentals.stream().filter(rental -> rental.getAgreementID().equals(agreementID)).findFirst().orElse(null);
     }
 
     @Override
@@ -39,7 +34,7 @@ public class RentalRepositoryImpl implements RentalRepository {
     public void updateRental(RentalAgreement updatedRental) {
         for (int i = 0; i < rentals.size(); i++) {
             RentalAgreement rental = rentals.get(i);
-            if (rental.getAgreementID() == updatedRental.getAgreementID()) {
+            if (rental.getAgreementID().equals(updatedRental.getAgreementID())) {
                 rentals.set(i, updatedRental);
                 return;
             }
@@ -47,8 +42,9 @@ public class RentalRepositoryImpl implements RentalRepository {
     }
 
     @Override
-    public void deleteRental(int agreementID) {
-        rentals.removeIf(rental -> rental.getAgreementID() == agreementID);
+    public void deleteRental(String agreementID) {
+        rentals.removeIf(rental -> rental.getAgreementID().equals(agreementID));
     }
 }
+
 
