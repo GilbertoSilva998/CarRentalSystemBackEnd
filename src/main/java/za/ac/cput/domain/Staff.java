@@ -13,7 +13,7 @@ public class Staff {
     private String contactInfo;
     private String shiftSchedule;
 
-    //Contructor
+    //Constructor
     private Staff() {
     }
 
@@ -89,6 +89,15 @@ public class Staff {
 
         public Builder setShiftSchedule(String shiftSchedule) {
             this.shiftSchedule = shiftSchedule;
+            return this;
+        }
+
+        public Builder copy(Staff staff) {
+            this.staffId = staff.staffId;
+            this.name = staff.name;
+            this.role = staff.role;
+            this.contactInfo = staff.contactInfo;
+            this.shiftSchedule = staff.shiftSchedule;
             return this;
         }
 
