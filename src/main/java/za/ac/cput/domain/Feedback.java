@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Feedback {
         private String feedbackId;
-        private Rental rental; // Assuming Rental class exists
+        private String rental; // Assuming Rental class exists
         private Customer customer; // Assuming Customer class exists
         private int rating;
         private String comments;
@@ -16,7 +16,7 @@ public class Feedback {
             // Default constructor
         }
 
-        public Feedback(String feedbackId, Rental rental, Customer customer, int rating, String comments, Date feedbackDate) {
+        public Feedback(String feedbackId, String rental, Customer customer, int rating, String comments, Date feedbackDate) {
             this.feedbackId = feedbackId;
             this.rental = rental;
             this.customer = customer;
@@ -34,11 +34,11 @@ public class Feedback {
             this.feedbackId = feedbackId;
         }
 
-        public Rental getRental() {
+        public String getRental() {
             return rental;
         }
 
-        public void setRental(Rental rental) {
+        public void setRental(String rental) {
             this.rental = rental;
         }
 

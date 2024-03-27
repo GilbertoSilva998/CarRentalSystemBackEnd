@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
- class ReservationRepositoryTest {
+class ReservationRepositoryTest {
     private ReservationRepository repository;
 
     @BeforeEach

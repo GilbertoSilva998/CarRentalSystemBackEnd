@@ -26,7 +26,7 @@ public class Main {
 
         // Sample data
         String feedbackId = "FB001";
-        Rental rental = new Rental(); // Assuming Rental class exists
+        String rental = ""; // Assuming Rental class exists
         Customer customer = new Customer(); // Assuming Customer class exists
         int rating = 4;
         String comments = "Great experience!";
