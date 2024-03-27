@@ -19,7 +19,7 @@ public class FeedbackRepositoryImpl implements IFeedbackRepository {
         feedList = new ArrayList<Feedback>();
     }
 
-    public static FeedbackRepositoryImpl getFeedbackRepositoryImpl() {
+    public static FeedbackRepositoryImpl getFeedbackRepository() {
         if (feedbackRepository == null) {
             feedbackRepository = new FeedbackRepositoryImpl();
         }
@@ -54,7 +54,6 @@ public class FeedbackRepositoryImpl implements IFeedbackRepository {
             feedList.remove(oldFeed);
             feedList.add(feedback);
             return feedback;
-
 
         }
         return null;
