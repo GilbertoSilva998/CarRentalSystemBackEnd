@@ -5,16 +5,16 @@ import java.util.Date;
 import java.util.Objects;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2023
  */
 public class RentalAgreement {
-    private  int agreementID;
-    private  int customerID;
-    private  int carID;
+    private  String agreementID;
+    private  String customerID;
+    private  String carID;
     private  String pickupLocation;
     private  String dropOffLocation;
-    private  Date pickupDateTime;
-    private  Date dropOffDateTime;
+    private  String pickupDateTime;
+    private  String dropOffDateTime;
     private  boolean insuranceCoverage;
     private  String[] additionalServices; // Change to array
     private  String termsAndConditions;
@@ -37,15 +37,15 @@ public class RentalAgreement {
     }
 
     // Getters
-    public int getAgreementID() {
+    public String getAgreementID() {
         return agreementID;
     }
 
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public int getCarID() {
+    public String getCarID() {
         return carID;
     }
 
@@ -57,11 +57,11 @@ public class RentalAgreement {
         return dropOffLocation;
     }
 
-    public Date getPickupDateTime() {
+    public String getPickupDateTime() {
         return pickupDateTime;
     }
 
-    public Date getDropOffDateTime() {
+    public String getDropOffDateTime() {
         return dropOffDateTime;
     }
 
@@ -79,28 +79,28 @@ public class RentalAgreement {
 
     // Builder
     public static class Builder {
-        private int agreementID;
-        private int customerID;
-        private int carID;
+        private String agreementID;
+        private String customerID;
+        private String carID;
         private String pickupLocation;
         private String dropOffLocation;
-        private Date pickupDateTime;
-        private Date dropOffDateTime;
+        private String pickupDateTime;
+        private String dropOffDateTime;
         private boolean insuranceCoverage;
         private String[] additionalServices;
         private String termsAndConditions;
 
-        public Builder setAgreementID(int agreementID) {
+        public Builder setAgreementID(String agreementID) {
             this.agreementID = agreementID;
             return this;
         }
 
-        public Builder setCustomerID(int customerID) {
+        public Builder setCustomerID(String customerID) {
             this.customerID = customerID;
             return this;
         }
 
-        public Builder setCarID(int carID) {
+        public Builder setCarID(String carID) {
             this.carID = carID;
             return this;
         }
@@ -115,12 +115,12 @@ public class RentalAgreement {
             return this;
         }
 
-        public Builder setPickupDateTime(Date pickupDateTime) {
+        public Builder setPickupDateTime(String pickupDateTime) {
             this.pickupDateTime = pickupDateTime;
             return this;
         }
 
-        public Builder setDropOffDateTime(Date dropOffDateTime) {
+        public Builder setDropOffDateTime(String dropOffDateTime) {
             this.dropOffDateTime = dropOffDateTime;
             return this;
         }
@@ -183,4 +183,7 @@ public class RentalAgreement {
                 ", termsAndConditions='" + termsAndConditions + '\'' +
                 '}';
     }
+
+
 }
+

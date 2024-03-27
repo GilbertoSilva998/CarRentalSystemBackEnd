@@ -4,25 +4,24 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.RentalAgreement;
 
 import java.util.Arrays;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 class RentalFactoryTest {
 
     @Test
     void createRental() {
         // Arrange
-        int agreementID = 1001;
-        int customerID = 2001;
-        int carID = 3001;
+        String agreementID = "1001";
+        String customerID = "2001";
+        String carID = "3001";
         String pickupLocation = "BMW Car Rentals";
         String dropOffLocation = "TOWN Location";
-        Date pickupDateTime = new Date();
-        Date dropOffDateTime = new Date();
+        String pickupDateTime = "08:30am - 4:00pm";
+        String dropOffDateTime = "08:30am - 4:00pm";
         boolean insuranceCoverage = true;
         String[] additionalServices = {"GPS", "Child Seat"}; // Array of additional services
         String termsAndConditions = "Standard Terms Apply";

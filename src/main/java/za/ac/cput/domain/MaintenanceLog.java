@@ -1,17 +1,16 @@
 package za.ac.cput.domain;
 
-import java.util.Date;
 import java.util.Objects;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 public class MaintenanceLog {
-    private int carID;
-    private Date maintenanceDate;
+    private String carID;
+    private String maintenanceDate;
     private String maintenanceType;
-    private double cost;
-    private int mileage;
+    private String cost;
+    private String mileage;
 
     // Constructor
     public MaintenanceLog() {}
@@ -25,11 +24,11 @@ public class MaintenanceLog {
     }
 
     // Getters
-    public int getCarID() {
+    public String getCarID() {
         return carID;
     }
 
-    public Date getMaintenanceDate() {
+    public String getMaintenanceDate() {
         return maintenanceDate;
     }
 
@@ -37,28 +36,28 @@ public class MaintenanceLog {
         return maintenanceType;
     }
 
-    public double getCost() {
+    public String  getCost() {
         return cost;
     }
 
-    public int getMileage() {
+    public String getMileage() {
         return mileage;
     }
 
     // Builder
     public static class Builder {
-        private int carID;
-        private Date maintenanceDate;
+        private String carID;
+        private String maintenanceDate;
         private String maintenanceType;
-        private double cost;
-        private int mileage;
+        private String cost;
+        private String mileage;
 
-        public Builder setCarID(int carID) {
+        public Builder setCarID(String carID) {
             this.carID = carID;
             return this;
         }
 
-        public Builder setMaintenanceDate(Date maintenanceDate) {
+        public Builder setMaintenanceDate(String maintenanceDate) {
             this.maintenanceDate = maintenanceDate;
             return this;
         }
@@ -68,12 +67,12 @@ public class MaintenanceLog {
             return this;
         }
 
-        public Builder setCost(double cost) {
+        public Builder setCost(String cost) {
             this.cost = cost;
             return this;
         }
 
-        public Builder setMileage(int mileage) {
+        public Builder setMileage(String mileage) {
             this.mileage = mileage;
             return this;
         }
@@ -84,16 +83,14 @@ public class MaintenanceLog {
     }
 
     // Equals, HashCode, ToString methods
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MaintenanceLog that = (MaintenanceLog) o;
-        return carID == that.carID &&
-                Double.compare(that.cost, cost) == 0 &&
-                mileage == that.mileage &&
-                Objects.equals(maintenanceDate, that.maintenanceDate) &&
-                Objects.equals(maintenanceType, that.maintenanceType);
+        return Objects.equals(carID, that.carID) && Objects.equals(maintenanceDate, that.maintenanceDate) && Objects.equals(maintenanceType, that.maintenanceType) && Objects.equals(cost, that.cost) && Objects.equals(mileage, that.mileage);
     }
 
     @Override

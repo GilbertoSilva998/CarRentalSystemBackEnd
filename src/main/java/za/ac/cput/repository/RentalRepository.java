@@ -5,17 +5,17 @@ import za.ac.cput.domain.RentalAgreement;
 import java.util.List;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 public interface RentalRepository {
     List<RentalAgreement> getAllRentals();
 
-    RentalAgreement getRentalById(int agreementID);
+    RentalAgreement getRentalById(String agreementID);
 
     void addRental(RentalAgreement rental);
 
     void updateRental(RentalAgreement updatedRental);
 
-    void deleteRental(int agreementID);
+    void deleteRental(String agreementID);
 }
 

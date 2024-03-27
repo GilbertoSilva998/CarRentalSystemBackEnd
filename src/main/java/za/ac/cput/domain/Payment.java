@@ -9,7 +9,7 @@ package za.ac.cput.domain;
 public class Payment {
     private String paymentID;
     private String reservationID;
-    private double totalAmount;
+    private String totalAmount;
     private String paymentType;
     private String date;
 
@@ -33,7 +33,7 @@ public class Payment {
         return reservationID;
     }
 
-    public double getTotalAmount() {
+    public String getTotalAmount() {
         return totalAmount;
     }
 
@@ -59,7 +59,7 @@ public class Payment {
     public static class Builder{
         private String paymentID;
         private String reservationID;
-        private double totalAmount;
+        private String totalAmount;
         private String paymentType;
         private String date;
 
@@ -73,7 +73,7 @@ public class Payment {
             return this;
         }
 
-        public Builder setTotalAmount(double totalAmount) {
+        public Builder setTotalAmount(String totalAmount) {
             this.totalAmount = totalAmount;
             return this;
         }

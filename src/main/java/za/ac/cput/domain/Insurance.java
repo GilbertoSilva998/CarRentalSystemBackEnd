@@ -10,7 +10,7 @@ package za.ac.cput.domain;
 public class Insurance {
     private String insuranceID;
     private String coverageType;
-    private double coverageAmount;
+    private String coverageAmount;
 
     private Insurance(Builder builder){
         this.insuranceID = builder.insuranceID;
@@ -26,7 +26,7 @@ public class Insurance {
         return coverageType;
     }
 
-    public double getCoverageAmount() {
+    public String getCoverageAmount() {
         return coverageAmount;
     }
 
@@ -42,7 +42,7 @@ public class Insurance {
     public static class Builder{
         private String insuranceID;
         private String coverageType;
-        private double coverageAmount;
+        private String coverageAmount;
 
         public Builder setInsuranceID(String insuranceID) {
             this.insuranceID = insuranceID;
@@ -54,7 +54,7 @@ public class Insurance {
             return this;
         }
 
-        public Builder setCoverageAmount(double coverageAmount) {
+        public Builder setCoverageAmount(String coverageAmount) {
             this.coverageAmount = coverageAmount;
             return this;
         }

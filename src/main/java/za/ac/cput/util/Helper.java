@@ -14,4 +14,8 @@ public class Helper {
         EmailValidator ev = EmailValidator.getInstance();
         return ev.isValid(email);
     }
+    public static void checkStringParam(String paramName, String paramValue){
+        if (isNullorEmpty(paramValue))
+            throw new IllegalArgumentException(String.format("Invalid value for param: %s", paramName));
+    }
 }
