@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2023
  */
 class MaintenanceLogRepositoryTest {
 
@@ -16,11 +16,11 @@ class MaintenanceLogRepositoryTest {
     void addMaintenanceLog() {
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
         MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Oil change")
-                .setCost(150.0)
-                .setMileage(5000)
+                .setCost("150.0")
+                .setMileage("5000")
                 .build();
         repository.addMaintenanceLog(maintenanceLog);
 
@@ -36,19 +36,19 @@ class MaintenanceLogRepositoryTest {
 
         // Create sample maintenance logs
         MaintenanceLog maintenanceLog1 = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Oil change")
-                .setCost(150.0)
-                .setMileage(5000)
+                .setCost("150.0")
+                .setMileage("5000")
                 .build();
 
         MaintenanceLog maintenanceLog2 = new MaintenanceLog.Builder()
-                .setCarID(102)
+                .setCarID("102")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Brake replacement")
-                .setCost(300.0)
-                .setMileage(5500)
+                .setCost("300.0")
+                .setMileage("5500")
                 .build();
 
         repository.addMaintenanceLog(maintenanceLog1);
@@ -66,15 +66,15 @@ class MaintenanceLogRepositoryTest {
     void getMaintenanceLogById() {
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
         MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Oil change")
-                .setCost(150.0)
-                .setMileage(5000)
+                .setCost("150.0")
+                .setMileage("5000")
                 .build();
         repository.addMaintenanceLog(maintenanceLog);
 
-        MaintenanceLog retrievedLog = repository.getMaintenanceLogById(101);
+        MaintenanceLog retrievedLog = repository.getMaintenanceLogById("101");
 
         // Assert
         assertNotNull(retrievedLog);
@@ -86,28 +86,28 @@ class MaintenanceLogRepositoryTest {
         // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
         MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Oil change")
-                .setCost(150.0)
-                .setMileage(5000)
+                .setCost("150.0")
+                .setMileage("5000")
                 .build();
         repository.addMaintenanceLog(maintenanceLog);
 
         // Create an updated maintenance log
         MaintenanceLog updatedMaintenanceLog = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Brake replacement")
-                .setCost(300.0)
-                .setMileage(5500)
+                .setCost("300.0")
+                .setMileage("5500")
                 .build();
 
         // Act
         repository.updateMaintenanceLog(updatedMaintenanceLog);
 
         // Assert
-        MaintenanceLog retrievedLog = repository.getMaintenanceLogById(101);
+        MaintenanceLog retrievedLog = repository.getMaintenanceLogById("101");
         assertEquals(updatedMaintenanceLog, retrievedLog);
     }
 
@@ -116,19 +116,19 @@ class MaintenanceLogRepositoryTest {
         // Arrange
         MaintenanceLogRepository repository = new MaintenanceLogRepositoryImpl();
         MaintenanceLog maintenanceLog = new MaintenanceLog.Builder()
-                .setCarID(101)
+                .setCarID("101")
                 .setMaintenanceDate(null)
                 .setMaintenanceType("Oil change")
-                .setCost(150.0)
-                .setMileage(5000)
+                .setCost("150.0")
+                .setMileage("5000")
                 .build();
         repository.addMaintenanceLog(maintenanceLog);
 
         // Act
-        repository.deleteMaintenanceLog(101);
+        repository.deleteMaintenanceLog("101");
 
         // Assert
-        MaintenanceLog deletedLog = repository.getMaintenanceLogById(101);
+        MaintenanceLog deletedLog = repository.getMaintenanceLogById("101");
         assertNull(deletedLog);
     }
 }

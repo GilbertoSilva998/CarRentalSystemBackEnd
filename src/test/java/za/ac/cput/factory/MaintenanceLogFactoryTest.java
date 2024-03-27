@@ -3,23 +3,22 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.MaintenanceLog;
 
-import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 /*
     Paul Maja 220214115
-    24 March 2023
+    25 March 2024
  */
 class MaintenanceLogFactoryTest {
 
     @Test
     void createMaintenanceLog() {
         // Arrange
-        int carID = 101;
-        Date maintenanceDate = new Date();
+        String carID = "101";
+        String maintenanceDate = "Fist week of the Month";
         String maintenanceType = "Oil change";
-        double maintenanceCost = 150.0;
-        int mileageAtMaintenance = 5000;
+        String maintenanceCost = "150.0";
+        String mileageAtMaintenance = "5000";
 
 
         MaintenanceLog maintenanceLog = MaintenanceLogFactory.createMaintenanceLog(carID, maintenanceDate,

@@ -58,11 +58,7 @@ public class NotificationRepositoryImpl implements INotificationRepository {
         public List<Notification> getNotificationsByRecipientId(String recipientId) {
             // Logic to retrieve notifications by recipient ID from the data source
             List<Notification> notifications = new ArrayList<>();
-//            for (Notification notification : notificationMap.values()) {
-//                if (notification.getRecipient().getCustomerId().equals(recipientId)) {
-//                    notifications.add(notification);
-//                }
-//            }
+
             return notifications;
         }
 }
