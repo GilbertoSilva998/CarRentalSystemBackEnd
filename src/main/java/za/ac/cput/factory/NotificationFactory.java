@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Car;
-import za.ac.cput.domain.Customer;
+
+
 import za.ac.cput.domain.Notification;
 import za.ac.cput.util.Helper;
 
@@ -11,20 +11,27 @@ import java.util.Date;
 public class NotificationFactory {
 
     // Method to create a notification object
-    public static Notification createNotification(String notificationId,
-                                                  String message,
+    public static Notification createNotification(String message,
                                                   String sentDate,
-                                                  boolean isRead,
+                                                  String isRead,
                                                   String recipient) {
 
+        if (Helper.isNullorEmpty(message) || Helper.isNullorEmpty(recipient)){
+            return null;
+        }
 
+        String notificationId = Helper.generateId();
 
+        Notification notification = new Notification.Builder().setNotificationId(notificationId)
+                .setMessage(message)
+                .setSentDate(sentDate)
+                .setIsRead(isRead)
+                .setRecipient(recipient)
+                .build();
+        return notification;
 
-
-
-        // Create and return a new notification object
-        return new Notification(notificationId, message, sentDate, isRead, recipient);
     }
+
 
 
 }
